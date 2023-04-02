@@ -20,15 +20,9 @@ const Header = () => {
   const [name, setName] = useState("Name");
   const [photoUrl, setPhotoUrl] = useState();
 
-  const token = localStorage.getItem('token');
-
   const fetchUserData = async () => {
     try {
-      const res = await fetch('http://localhost:4000/auth/current', {
-      headers: {
-      'Authorization': `Bearer ${token}`
-      }
-    });
+      const res = await fetch();
       const userData = await res.json();
       setName(userData.name);
       setPhotoUrl(userData.photoUrl);
@@ -37,9 +31,9 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    fetchUserData();
-  }, []);
+  // useEffect(() => {
+  //   fetchUserData();
+  // }, []);
   return (
     <header>
       <HeaderContainer>
@@ -53,19 +47,19 @@ const Header = () => {
         <NavContainer>
           <NavLinksContainer>
             <div>
-              <Link to="/CategoriesPage">Categories</Link>
+              <Link to="/categories">Categories</Link>
             </div>
             <div>
-              <Link to="/AddRecipePage">Add Recipe</Link>
+              <Link to="/add">Add Recipe</Link>
             </div>
             <div>
-              <Link to="/MyRecipesPage">My Recipes</Link>
+              <Link to="/my">My Recipes</Link>
             </div>
             <div>
-              <Link to="/FavoritePage">Favorites</Link>
+              <Link to="/favorite">Favorites</Link>
             </div>
             <div>
-              <Link to="/ShoppingPage">Shopping List</Link>
+              <Link to="/shopping-list">Shopping List</Link>
             </div>
             <div>
               <Link to={{ pathname: "/SearchPage", search: "?type=query" }}>
