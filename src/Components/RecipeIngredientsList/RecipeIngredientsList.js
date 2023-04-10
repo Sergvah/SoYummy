@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectShoppingList } from "redux/shoppingList/selectors";
 import {
@@ -25,37 +25,26 @@ import DefaultIngredientsImg from "images/skeleton/ingredient-img.svg";
 
 const RecipeIngredientsList = ({ ingredients }) => {
   const [selectedIngredientIds, setSelectedIngredientIds] = useState([]);
-  const shoppingList = useSelector(selectShoppingList);
-  const ids = useMemo(
-    () => shoppingList.map((item) => item._id),
-    [shoppingList]
-  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchShoppingList());
   }, [dispatch]);
 
+  const shoppingList = useSelector(selectShoppingList);
+
   useEffect(() => {
+    const ids = shoppingList.map((item) => item._id);
     setSelectedIngredientIds(ids);
-  }, [ids]);
+  }, [shoppingList]);
 
-  const handleInputChange = async (evt) => {
-    const { id, checked } = evt.target;
-    await setSelectedIngredientIds((prevSelectedIds) => {
-      if (checked) {
-        return [...prevSelectedIds, id];
-      } else {
-        return prevSelectedIds.filter((selectedId) => selectedId !== id);
-      }
-    });
-    
-
+  const handleInputChange =  (evt) => {
+    const { id } = evt.target;
     const currentIngredient = ingredients.find((item) => item._id === id);
     if (currentIngredient) {
-  const { measure, _id } = currentIngredient;
-  const credentials = { measure: measure, ingredientId: _id };
-  dispatch(updateShoppingList(credentials));
-}
+      const { measure, _id } = currentIngredient;
+      const credentials = { measure: measure, ingredientId: _id };
+      dispatch(updateShoppingList(credentials));
+    }
   };
 
   return (
