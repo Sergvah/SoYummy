@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import bgLeftSideM from "images/bg-common/bg-left-mob.png";
 import bgRightSideM from "images/bg-common/bg-right-mob.png";
 import bgLeftSideT from "images/bg-common/bg-left-tab.png";
@@ -19,25 +18,4 @@ export const LayoutStyled = styled.div`
     background-image: url(${bgLeftSideD}), url(${bgRightSideD});
     background-position: left bottom 30px, bottom right;
   }
-`;
-
-export const PolicyWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  padding: 28px 0;
-  color: ${({ theme }) => `${theme.colors.backgroundSecondary}`};
-  font-family: "Poppins";
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 1;
-`;
-
-export const StyledLink = styled(Link)`
-  color: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: inherit;
 `;

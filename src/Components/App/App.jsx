@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { refreshUser } from "redux/auth/operation";
 import { selectTheme } from "redux/theme/selectors";
 
-import Layout from "Layout/SharedLayout";
+import SharedLayout from "Layout/SharedLayout/SharedLayout";
 
 import { useAuth } from "hooks";
 
@@ -56,7 +56,7 @@ export const App = () => {
             ) : (
                 <>
                     <Routes>
-                        <Route path="/" element={<Layout />}>
+                        <Route path="/" element={<SharedLayout />}>
                             <Route path="/main" element={<MainPage />} />
                             <Route
                                 path="/categories"

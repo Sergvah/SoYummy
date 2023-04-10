@@ -29,6 +29,8 @@ import {
   EmailText,
   BenefitText,
   EmailForm,
+  PolicyWrap, 
+  StyledLink
 } from "./Footer.Styled";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -228,7 +230,11 @@ const Footer = () => {
           </li>
         </SocialList>
        
-      </Container>
+        </Container>
+      <PolicyWrap>
+      <p>© 2023 All Rights Reserved.</p>
+      <StyledLink>Terms of Service</StyledLink>
+      </PolicyWrap>
     </FooterContainer>
   </>
   );

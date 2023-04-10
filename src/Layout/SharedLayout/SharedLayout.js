@@ -2,9 +2,9 @@ import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import Header from "Layout/Header/Header";
 import Footer from "Layout/Footer/Footer";
-import { LayoutStyled, PolicyWrap, StyledLink } from "./SharedLayout.styled";
+import { LayoutStyled } from "./SharedLayout.styled";
 
-const Layout = () => {
+const SharedLayout = () => {
   return (
     <LayoutStyled>
       <Header />
@@ -12,12 +12,8 @@ const Layout = () => {
         <Outlet />
       </Suspense>
       <Footer/>
-      <PolicyWrap>
-      <p>© 2023 All Rights Reserved.</p>
-      <StyledLink>Terms of Service</StyledLink>
-      </PolicyWrap>
     </LayoutStyled>
   );
 };
 
-export default Layout;
+export default SharedLayout;

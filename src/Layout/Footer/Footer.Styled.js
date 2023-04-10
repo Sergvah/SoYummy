@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { MdOutlineEmail } from "react-icons/md";
 import { SiFacebook, SiYoutube, SiTwitter, SiInstagram } from "react-icons/si";
 import { GiEvilFork } from "react-icons/gi";
@@ -405,4 +406,26 @@ export const BenefitText = styled.span`
     display: block;
     text-indent: 13px;
   }
+`;
+
+
+export const PolicyWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 0;
+  color: ${({ theme }) => `${theme.colors.backgroundSecondary}`};
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1;
+`;
+
+export const StyledLink = styled(Link)`
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
 `;
